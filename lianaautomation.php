@@ -23,14 +23,14 @@
 /**
  * Include cookie handler code
  */
-require_once dirname(__FILE__) . '/includes/lianaautomation-cookie.php';
+require_once dirname( __FILE__ ) . '/includes/lianaautomation-cookie.php';
 
 /**
  * Include page browse handler code
  */
-require_once dirname(__FILE__) . '/includes/lianaautomation-pagebrowse.php';
+require_once dirname( __FILE__ ) . '/includes/lianaautomation-pagebrowse.php';
 
 /**
  * Include admin panel code
  */
-require_once dirname(__FILE__) . '/admin/lianaautomation-admin.php';
+require_once dirname( __FILE__ ) . '/admin/lianaautomation-admin.php';
