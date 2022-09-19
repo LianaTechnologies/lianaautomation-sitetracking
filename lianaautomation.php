@@ -3,7 +3,7 @@
  * Plugin Name:       LianaAutomation
  * Plugin URI:        https://www.lianatech.com/solutions/websites
  * Description:       LianaAutomation for WordPress (page browse tracking)
- * Version:           1.0.31
+ * Version:           1.0.32
  * Requires at least: 5.2
  * Requires PHP:      7.4
  * Author:            Liana Technologies Oy
