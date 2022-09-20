@@ -1,6 +1,6 @@
 <?php
 /**
- * LianaAutomation admin panel
+ * LianaAutomation Site Tracking admin panel
  *
  * PHP Version 7.4
  *
@@ -20,7 +20,7 @@
  * @license  https://www.gnu.org/licenses/gpl-3.0-standalone.html GPL-3.0-or-later
  * @link     https://www.lianatech.com
  */
-class LianaAutomation {
+class LianaAutomation_SiteTracking {
 
 	/**
 	 * Constructor
@@ -77,7 +77,7 @@ class LianaAutomation {
 	public function liana_automation_create_admin_page():void {
 		$this->lianaautomation_options = get_option( 'lianaautomation_options' ); ?>
 		<div class="wrap">
-			<h2>LianaAutomation API Options for Page Browse Tracking</h2>
+			<h2>LianaAutomation API Options for Site Tracking</h2>
 			<?php settings_errors(); ?>
 			<form method="post" action="options.php">
 				<?php
@@ -413,5 +413,5 @@ class LianaAutomation {
 
 }
 if ( is_admin() ) {
-	$lianaAutomation = new LianaAutomation();
+	$lianaautomation_sitetracking = new LianaAutomation_SiteTracking();
 }

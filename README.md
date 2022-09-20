@@ -1,8 +1,8 @@
-# LianaAutomation Plugin for WordPress
+# LianaAutomation Site Tracking Plugin for WordPress
 
-This plugin provides necessary functions to integrate WordPress with LianaAutomation.
+This plugin provides necessary functions to integrate WordPress with LianaAutomation marketing automation platform.
 
-This plugin provides the following events: page browse
+This plugin implements the following events: site tracking (page browse event)
 
 # Information for Developers:
 
@@ -11,5 +11,5 @@ This plugin provides the following events: page browse
 ## Oneliner to create installable plugin from the repo directory
 
 ```
-zip -r lianaautomation.zip lianaautomation -x "lianaautomation/.*"
+zip -r lianaautomation-sitetracking.zip lianaautomation-sitetracking -x "lianaautomation-sitetracking/.*"
 ```
