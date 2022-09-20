@@ -56,10 +56,10 @@ class LianaAutomation_SiteTracking {
 		}
 		add_submenu_page(
 			'lianaautomation',
-			'Page Browse',
-			'Page Browse',
+			'Site Tracking',
+			'Site Tracking',
 			'manage_options',
-			'lianaautomationpbr',
+			'lianaautomation-sitetracking',
 			array( $this, 'liana_automation_create_admin_page' ),
 		);
 
@@ -75,14 +75,14 @@ class LianaAutomation_SiteTracking {
 	 * @return void
 	 */
 	public function liana_automation_create_admin_page():void {
-		$this->lianaautomation_options = get_option( 'lianaautomation_options' ); ?>
+		$this->lianaautomation_options = get_option( 'lianaautomation_sitetracking_options' ); ?>
 		<div class="wrap">
 			<h2>LianaAutomation API Options for Site Tracking</h2>
 			<?php settings_errors(); ?>
 			<form method="post" action="options.php">
 				<?php
-				settings_fields( 'lianaautomation_option_group' );
-				do_settings_sections( 'lianaautomation_admin' );
+				settings_fields( 'lianaautomation_sitetracking_option_group' );
+				do_settings_sections( 'lianaautomation_sitetracking_admin' );
 				submit_button();
 				?>
 			</form>
@@ -97,72 +97,72 @@ class LianaAutomation_SiteTracking {
 	 */
 	public function liana_automation_page_init():void {
 		register_setting(
-			'lianaautomation_option_group',
-			'lianaautomation_options',
-			array( $this, 'liana_automation_sanitize' )
+			'lianaautomation_sitetracking_option_group',
+			'lianaautomation_sitetracking_options',
+			array( $this, 'liana_automation_sitetracking_sanitize' )
 		);
 
 		add_settings_section(
-			'lianaautomation_section',
+			'lianaautomation_sitetracking_section',
 			'',
-			array( $this, 'liana_automation_section_info' ),
-			'lianaautomation_admin'
+			array( $this, 'liana_automation_sitetracking_section_info' ),
+			'lianaautomation_sitetracking_admin'
 		);
 
 		add_settings_field(
-			'lianaautomation_url',
+			'lianaautomation_sitetracking_url',
 			'Automation API URL',
-			array( $this, 'liana_automation_url_callback' ),
-			'lianaautomation_admin',
-			'lianaautomation_section'
+			array( $this, 'liana_automation_sitetracking_url_callback' ),
+			'lianaautomation_sitetracking_admin',
+			'lianaautomation_sitetracking_section'
 		);
 
 		add_settings_field(
-			'lianaautomation_realm',
+			'lianaautomation_sitetracking_realm',
 			'Automation Realm',
-			array( $this, 'liana_automation_realm_callback' ),
-			'lianaautomation_admin',
-			'lianaautomation_section'
+			array( $this, 'liana_automation_sitetracking_realm_callback' ),
+			'lianaautomation_sitetracking_admin',
+			'lianaautomation_sitetracking_section'
 		);
 
 		add_settings_field(
-			'lianaautomation_user',
+			'lianaautomation_sitetracking_user',
 			'Automation User',
-			array( $this, 'liana_automation_user_callback' ),
-			'lianaautomation_admin',
-			'lianaautomation_section'
+			array( $this, 'liana_automation_sitetracking_user_callback' ),
+			'lianaautomation_sitetracking_admin',
+			'lianaautomation_sitetracking_section'
 		);
 
 		add_settings_field(
-			'lianaautomation_key',
+			'lianaautomation_sitetracking_key',
 			'Automation Secret Key',
-			array( $this, 'liana_automation_key_callback' ),
-			'lianaautomation_admin',
-			'lianaautomation_section'
+			array( $this, 'liana_automation_sitetracking_key_callback' ),
+			'lianaautomation_sitetracking_admin',
+			'lianaautomation_sitetracking_section'
 		);
 
 		add_settings_field(
-			'lianaautomation_channel',
+			'lianaautomation_sitetracking_channel',
 			'Automation Channel ID',
 			array( $this, 'liana_automation_channel_callback' ),
-			'lianaautomation_admin',
-			'lianaautomation_section'
+			'lianaautomation_sitetracking_admin',
+			'lianaautomation_sitetracking_section'
 		);
 
 		// Status check.
 		add_settings_field(
-			'lianaautomation_status_check',
+			'lianaautomation_sitetracking_status_check',
 			'LianaAutomation Connection Check',
-			array( $this, 'liana_automation_connection_check_callback' ),
-			'lianaautomation_admin',
-			'lianaautomation_section'
+			array( $this, 'liana_automation_sitetracking_connection_check_callback' ),
+			'lianaautomation_sitetracking_admin',
+			'lianaautomation_sitetracking_section'
 		);
 	}
 
 	/**
 	 * Basic input sanitization function
 	 *
-	 * @param string $input String to be sanitized.
+	 * @param string $input String array to be sanitized.
 	 *
 	 * @return null
 	 */
@@ -210,13 +210,13 @@ class LianaAutomation_SiteTracking {
 	 *
 	 * @return void
 	 */
-	public function liana_automation_url_callback():void {
+	public function liana_automation_sitetracking_url_callback():void {
 		printf(
 			'<input class="regular-text" type="text" '
-			. 'name="lianaautomation_options[lianaautomation_url]" '
+			. 'name="lianaautomation_sitetracking_options[lianaautomation_url]" '
 			. 'id="lianaautomation_url" value="%s">',
-			isset( $this->lianaautomation_options['lianaautomation_url'] )
-				? esc_attr( $this->lianaautomation_options['lianaautomation_url'] )
+			isset( $this->lianaautomation_sitetracking_options['lianaautomation_url'] )
+				? esc_attr( $this->lianaautomation_sitetracking_options['lianaautomation_url'] )
 				: ''
 		);
 	}
@@ -226,13 +226,13 @@ class LianaAutomation_SiteTracking {
 	 *
 	 * @return void
 	 */
-	public function liana_automation_realm_callback():void {
+	public function liana_automation_sitetracking_realm_callback():void {
 		printf(
 			'<input class="regular-text" type="text" '
-			. 'name="lianaautomation_options[lianaautomation_realm]" '
+			. 'name="lianaautomation_sitetracking_options[lianaautomation_realm]" '
 			. 'id="lianaautomation_realm" value="%s">',
-			isset( $this->lianaautomation_options['lianaautomation_realm'] )
-				? esc_attr( $this->lianaautomation_options['lianaautomation_realm'] )
+			isset( $this->lianaautomation_sitetracking_options['lianaautomation_realm'] )
+				? esc_attr( $this->lianaautomation_sitetracking_options['lianaautomation_realm'] )
 				: ''
 		);
 	}
@@ -241,13 +241,13 @@ class LianaAutomation_SiteTracking {
 	 *
 	 * @return void
 	 */
-	public function liana_automation_user_callback():void {
+	public function liana_automation_sitetracking_user_callback():void {
 		printf(
 			'<input class="regular-text" type="text" '
-			. 'name="lianaautomation_options[lianaautomation_user]" '
+			. 'name="lianaautomation_sitetracking_options[lianaautomation_user]" '
 			. 'id="lianaautomation_user" value="%s">',
-			isset( $this->lianaautomation_options['lianaautomation_user'] )
-				? esc_attr( $this->lianaautomation_options['lianaautomation_user'] )
+			isset( $this->lianaautomation_sitetracking_options['lianaautomation_user'] )
+				? esc_attr( $this->lianaautomation_sitetracking_options['lianaautomation_user'] )
 				: ''
 		);
 	}
@@ -257,13 +257,13 @@ class LianaAutomation_SiteTracking {
 	 *
 	 * @return void
 	 */
-	public function liana_automation_key_callback():void {
+	public function liana_automation_sitetracking_key_callback():void {
 		printf(
 			'<input class="regular-text" type="text" '
-			. 'name="lianaautomation_options[lianaautomation_key]" '
+			. 'name="lianaautomation_sitetracking_options[lianaautomation_key]" '
 			. 'id="lianaautomation_key" value="%s">',
-			isset( $this->lianaautomation_options['lianaautomation_key'] )
-				? esc_attr( $this->lianaautomation_options['lianaautomation_key'] )
+			isset( $this->lianaautomation_sitetracking_options['lianaautomation_key'] )
+				? esc_attr( $this->lianaautomation_sitetracking_options['lianaautomation_key'] )
 				: ''
 		);
 	}
@@ -273,13 +273,13 @@ class LianaAutomation_SiteTracking {
 	 *
 	 * @return void
 	 */
-	public function liana_automation_channel_callback():void {
+	public function liana_automation_sitetracking_channel_callback():void {
 		printf(
 			'<input class="regular-text" type="text" '
-			. 'name="lianaautomation_options[lianaautomation_channel]" '
+			. 'name="lianaautomation_sitetracking_options[lianaautomation_channel]" '
 			. 'id="lianaautomation_channel" value="%s">',
-			isset( $this->lianaautomation_options['lianaautomation_channel'] )
-				? esc_attr( $this->lianaautomation_options['lianaautomation_channel'] )
+			isset( $this->lianaautomation_sitetracking_options['lianaautomation_channel'] )
+				? esc_attr( $this->lianaautomation_sitetracking_options['lianaautomation_channel'] )
 				: ''
 		);
 	}
@@ -289,43 +289,43 @@ class LianaAutomation_SiteTracking {
 	 *
 	 * @return string
 	 */
-	public function liana_automation_connection_check_callback() {
+	public function liana_automation_sitetracking_connection_check_callback() {
 
 		$return = '💥Fail';
-		if ( empty( $this->lianaautomation_options['lianaautomation_user'] ) ) {
-			echo $return;
+		if ( empty( $this->lianaautomation_sitetracking_options['lianaautomation_user'] ) ) {
+			echo wp_kses_post( $return );
 			return null;
 		}
 		$user
-			= $this->lianaautomation_options['lianaautomation_user'];
+			= $this->lianaautomation_sitetracking_options['lianaautomation_user'];
 
-		if ( empty( $this->lianaautomation_options['lianaautomation_key'] ) ) {
-			echo $return;
+		if ( empty( $this->lianaautomation_sitetracking_options['lianaautomation_key'] ) ) {
+			echo wp_kses_post( $return );
 			return null;
 		}
 		$secret
-			= $this->lianaautomation_options['lianaautomation_key'];
+			= $this->lianaautomation_sitetracking_options['lianaautomation_key'];
 
-		if ( empty( $this->lianaautomation_options['lianaautomation_realm'] ) ) {
-			echo $return;
+		if ( empty( $this->lianaautomation_sitetracking_options['lianaautomation_realm'] ) ) {
+			echo wp_kses_post( $return );
 			return null;
 		}
 		$realm
-			= $this->lianaautomation_options['lianaautomation_realm'];
+			= $this->lianaautomation_sitetracking_options['lianaautomation_realm'];
 
-		if ( empty( $this->lianaautomation_options['lianaautomation_url'] ) ) {
-			echo $return;
+		if ( empty( $this->lianaautomation_sitetracking_options['lianaautomation_url'] ) ) {
+			echo wp_kses_post( $return );
 			return null;
 		}
 		$url
-			= $this->lianaautomation_options['lianaautomation_url'];
+			= $this->lianaautomation_sitetracking_options['lianaautomation_url'];
 
-		if ( empty( $this->lianaautomation_options['lianaautomation_channel'] ) ) {
-			echo $return;
+		if ( empty( $this->lianaautomation_sitetracking_options['lianaautomation_channel'] ) ) {
+			echo wp_kses_post( $return );
 			return null;
 		}
 		$channel
-			= $this->lianaautomation_options['lianaautomation_channel'];
+			= $this->lianaautomation_sitetracking_options['lianaautomation_channel'];
 
 		/**
 		* General variables
@@ -389,7 +389,7 @@ class LianaAutomation_SiteTracking {
 
 		if ( ! $fp ) {
 			// API failed to connect!
-			echo $return;
+			echo wp_kses_post( $return );
 			return null;
 		}
 
@@ -407,7 +407,7 @@ class LianaAutomation_SiteTracking {
 			}
 		}
 
-		echo $return;
+		echo wp_kses_post( $return );
 	}
 
 
