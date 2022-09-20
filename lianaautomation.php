@@ -33,4 +33,4 @@ require_once dirname( __FILE__ ) . '/includes/lianaautomation-pagebrowse.php';
 /**
  * Include admin panel code
  */
-require_once dirname( __FILE__ ) . '/admin/lianaautomation-admin.php';
+require_once dirname( __FILE__ ) . '/admin/class-lianaautomation.php';

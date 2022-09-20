@@ -5,7 +5,7 @@
  * PHP Version 7.4
  *
  * @category Components
- * @package  WordPress
+ * @package  LianaAutomation
  * @author   Liana Technologies <websites@lianatech.com>
  * @license  https://www.gnu.org/licenses/gpl-3.0-standalone.html GPL-3.0-or-later
  * @link     https://www.lianatech.com
@@ -15,21 +15,19 @@
  * LianaAutomation options panel class
  *
  * @category Components
- * @package  WordPress
+ * @package  LianaAutomation
  * @author   Liana Technologies <websites@lianatech.com>
  * @license  https://www.gnu.org/licenses/gpl-3.0-standalone.html GPL-3.0-or-later
  * @link     https://www.lianatech.com
  */
 class LianaAutomation {
 
-	private $_lianaautomation_options;
-
 	/**
 	 * Constructor
 	 */
 	public function __construct() {
-		add_action( 'admin_menu', array( $this, 'lianaAutomationAddPluginPage' ) );
-		add_action( 'admin_init', array( $this, 'lianaAutomationPageInit' ) );
+		add_action( 'admin_menu', array( $this, 'liana_automation_add_plugin_page' ) );
+		add_action( 'admin_init', array( $this, 'liana_automation_page_init' ) );
 	}
 
 	/**
@@ -37,7 +35,7 @@ class LianaAutomation {
 	 *
 	 * @return void
 	 */
-	public function lianaAutomationAddPluginPage():void {
+	public function liana_automation_add_plugin_page():void {
 		global $admin_page_hooks;
 		if ( defined( 'WP_DEBUG' ) && WP_DEBUG === true ) {
 			// phpcs:disable WordPress.PHP.DevelopmentFunctions
@@ -47,13 +45,13 @@ class LianaAutomation {
 
 		if ( ! isset( $admin_page_hooks['lianaautomation'] ) ) {
 			add_menu_page(
-				'LianaAutomation', // page_title.
-				'LianaAutomation', // menu_title.
-				'manage_options', // capability.
-				'lianaautomation', // menu_slug.
-				array( $this, 'lianaAutomationCreateAdminPage' ), // function.
-				'dashicons-admin-settings', // icon_url.
-				65 // position.
+				'LianaAutomation',
+				'LianaAutomation',
+				'manage_options',
+				'lianaautomation',
+				array( $this, 'lianaAutomation_create_admin_page' ),
+				'dashicons-admin-settings',
+				65
 			);
 		}
 		add_submenu_page(
@@ -62,20 +60,21 @@ class LianaAutomation {
 			'Page Browse',
 			'manage_options',
 			'lianaautomationpbr',
-			array( $this, 'lianaAutomationCreateAdminPage' ), // function.
+			array( $this, 'liana_automation_create_admin_page' ),
 		);
 
-		// Remove the duplicate of the top level menu item from the sub menu
-		// to make things pretty.
+		/*
+		 * Remove the duplicate of the top level menu item from the sub menu to make things pretty.
+		 */
 		remove_submenu_page( 'lianaautomation', 'lianaautomation' );
 	}
 
 	/**
 	 * Construct an admin page
 	 *
-	 * @return null
+	 * @return void
 	 */
-	public function lianaAutomationCreateAdminPage() {
+	public function liana_automation_create_admin_page():void {
 		$this->lianaautomation_options = get_option( 'lianaautomation_options' ); ?>
 		<div class="wrap">
 			<h2>LianaAutomation API Options for Page Browse Tracking</h2>
@@ -96,24 +95,24 @@ class LianaAutomation {
 	 *
 	 * @return void
 	 */
-	public function lianaAutomationPageInit():void {
+	public function liana_automation_page_init():void {
 		register_setting(
 			'lianaautomation_option_group',
 			'lianaautomation_options',
-			array( $this, 'lianaAutomationSanitize' )
+			array( $this, 'liana_automation_sanitize' )
 		);
 
 		add_settings_section(
 			'lianaautomation_section',
 			'',
-			array( $this, 'lianaAutomationSectionInfo' ),
+			array( $this, 'liana_automation_section_info' ),
 			'lianaautomation_admin'
 		);
 
 		add_settings_field(
 			'lianaautomation_url',
 			'Automation API URL',
-			array( $this, 'lianaAutomationURLCallback' ),
+			array( $this, 'liana_automation_url_callback' ),
 			'lianaautomation_admin',
 			'lianaautomation_section'
 		);
@@ -121,7 +120,7 @@ class LianaAutomation {
 		add_settings_field(
 			'lianaautomation_realm',
 			'Automation Realm',
-			array( $this, 'lianaAutomationRealmCallback' ),
+			array( $this, 'liana_automation_realm_callback' ),
 			'lianaautomation_admin',
 			'lianaautomation_section'
 		);
@@ -129,7 +128,7 @@ class LianaAutomation {
 		add_settings_field(
 			'lianaautomation_user',
 			'Automation User',
-			array( $this, 'lianaAutomationUserCallback' ),
+			array( $this, 'liana_automation_user_callback' ),
 			'lianaautomation_admin',
 			'lianaautomation_section'
 		);
@@ -137,7 +136,7 @@ class LianaAutomation {
 		add_settings_field(
 			'lianaautomation_key',
 			'Automation Secret Key',
-			array( $this, 'lianaAutomationKeyCallback' ),
+			array( $this, 'liana_automation_key_callback' ),
 			'lianaautomation_admin',
 			'lianaautomation_section'
 		);
@@ -145,7 +144,7 @@ class LianaAutomation {
 		add_settings_field(
 			'lianaautomation_channel',
 			'Automation Channel ID',
-			array( $this, 'lianaAutomationChannelCallback' ),
+			array( $this, 'liana_automation_channel_callback' ),
 			'lianaautomation_admin',
 			'lianaautomation_section'
 		);
@@ -154,10 +153,7 @@ class LianaAutomation {
 		add_settings_field(
 			'lianaautomation_status_check',
 			'LianaAutomation Connection Check',
-			array(
-				$this,
-				'lianaAutomationConnectionCheckCallback',
-			),
+			array( $this, 'liana_automation_connection_check_callback' ),
 			'lianaautomation_admin',
 			'lianaautomation_section'
 		);
@@ -170,7 +166,7 @@ class LianaAutomation {
 	 *
 	 * @return null
 	 */
-	public function lianaAutomationSanitize( $input ) {
+	public function liana_automation_sanitize( $input ) {
 		$sanitary_values = array();
 
 		if ( isset( $input['lianaautomation_url'] ) ) {
@@ -197,13 +193,16 @@ class LianaAutomation {
 	}
 
 	/**
-	 * Empty section info
+	 * Section info
 	 *
 	 * @return void
 	 */
-	public function lianaAutomationSectionInfo():void {
-		// Intentinally left blank.
-		// Could be used to generate info text section.
+	public function liana_automation_section_info():void {
+		// Generate info text section.
+		printf( '<h2>Important CCPA/GDPR privacy information</h2>' );
+		printf( '<p>By entering valid API credentials below, you enable this plugin to send personal information of your site visitors to Liana Technologies Oy.</p>' );
+		printf( '<p>In most cases, this plugin <b>must</b> be accompanied by a <i>consent management solution</i>.</p>' );
+		printf( '<p>If unsure, do not use this plugin.</p>' );
 	}
 
 	/**
@@ -211,7 +210,7 @@ class LianaAutomation {
 	 *
 	 * @return void
 	 */
-	public function lianaAutomationURLCallback():void {
+	public function liana_automation_url_callback():void {
 		printf(
 			'<input class="regular-text" type="text" '
 			. 'name="lianaautomation_options[lianaautomation_url]" '
@@ -227,7 +226,7 @@ class LianaAutomation {
 	 *
 	 * @return void
 	 */
-	public function lianaAutomationRealmCallback():void {
+	public function liana_automation_realm_callback():void {
 		printf(
 			'<input class="regular-text" type="text" '
 			. 'name="lianaautomation_options[lianaautomation_realm]" '
@@ -242,7 +241,7 @@ class LianaAutomation {
 	 *
 	 * @return void
 	 */
-	public function lianaAutomationUserCallback():void {
+	public function liana_automation_user_callback():void {
 		printf(
 			'<input class="regular-text" type="text" '
 			. 'name="lianaautomation_options[lianaautomation_user]" '
@@ -258,7 +257,7 @@ class LianaAutomation {
 	 *
 	 * @return void
 	 */
-	public function lianaAutomationKeyCallback():void {
+	public function liana_automation_key_callback():void {
 		printf(
 			'<input class="regular-text" type="text" '
 			. 'name="lianaautomation_options[lianaautomation_key]" '
@@ -274,7 +273,7 @@ class LianaAutomation {
 	 *
 	 * @return void
 	 */
-	public function lianaAutomationChannelCallback():void {
+	public function liana_automation_channel_callback():void {
 		printf(
 			'<input class="regular-text" type="text" '
 			. 'name="lianaautomation_options[lianaautomation_channel]" '
@@ -290,7 +289,7 @@ class LianaAutomation {
 	 *
 	 * @return string
 	 */
-	public function lianaAutomationConnectionCheckCallback() {
+	public function liana_automation_connection_check_callback() {
 
 		$return = '💥Fail';
 		if ( empty( $this->lianaautomation_options['lianaautomation_user'] ) ) {

@@ -11,5 +11,5 @@ This plugin provides the following events: page browse
 ## Oneliner to create installable plugin from the repo directory
 
 ```
-zip -r lianaautomation.zip lianaautomation -x "lianaautomation/.git*"
+zip -r lianaautomation.zip lianaautomation -x "lianaautomation/.*"
 ```
