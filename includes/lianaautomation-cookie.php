@@ -4,9 +4,7 @@
  *
  * PHP Version 7.4
  *
- * @category Components
- * @package  WordPress
- * @author   Liana Technologies <websites@lianatech.com>
+ * @package  LianaAutomation
  * @license  https://www.gnu.org/licenses/gpl-3.0-standalone.html GPL-3.0-or-later
  * @link     https://www.lianatech.com
  */
