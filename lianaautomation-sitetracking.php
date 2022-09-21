@@ -1,7 +1,7 @@
 <?php
 /**
- * Plugin Name:       LianaAutomation
- * Plugin URI:        https://www.lianatech.com/solutions/websites
+ * Plugin Name:       LianaAutomation Site Tracking
+ * Plugin URI:        https://www.lianatech.com/solutions/marketing-automation/
  * Description:       LianaAutomation for WordPress (page browse tracking)
  * Version:           1.0.32
  * Requires at least: 5.2
@@ -33,4 +33,4 @@ require_once dirname( __FILE__ ) . '/includes/lianaautomation-pagebrowse.php';
 /**
  * Include admin panel code
  */
-require_once dirname( __FILE__ ) . '/admin/class-lianaautomation.php';
+require_once dirname( __FILE__ ) . '/admin/class-lianaautomation-sitetracking.php';
