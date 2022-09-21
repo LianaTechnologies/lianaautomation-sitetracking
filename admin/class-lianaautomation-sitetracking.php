@@ -101,14 +101,14 @@ class LianaAutomation_SiteTracking {
 		add_settings_section(
 			'lianaautomation_sitetracking_section',
 			'',
-			array( $this, 'liana_automation_sitetracking_section_info' ),
+			array( $this, 'lianaautomation_sitetracking_section_info' ),
 			'lianaautomation_sitetracking_admin'
 		);
 
 		add_settings_field(
 			'lianaautomation_sitetracking_url',
 			'Automation API URL',
-			array( $this, 'liana_automation_sitetracking_url_callback' ),
+			array( $this, 'lianaautomation_sitetracking_url_callback' ),
 			'lianaautomation_sitetracking_admin',
 			'lianaautomation_sitetracking_section'
 		);
@@ -116,7 +116,7 @@ class LianaAutomation_SiteTracking {
 		add_settings_field(
 			'lianaautomation_sitetracking_realm',
 			'Automation Realm',
-			array( $this, 'liana_automation_sitetracking_realm_callback' ),
+			array( $this, 'lianaautomation_sitetracking_realm_callback' ),
 			'lianaautomation_sitetracking_admin',
 			'lianaautomation_sitetracking_section'
 		);
@@ -124,7 +124,7 @@ class LianaAutomation_SiteTracking {
 		add_settings_field(
 			'lianaautomation_sitetracking_user',
 			'Automation User',
-			array( $this, 'liana_automation_sitetracking_user_callback' ),
+			array( $this, 'lianaautomation_sitetracking_user_callback' ),
 			'lianaautomation_sitetracking_admin',
 			'lianaautomation_sitetracking_section'
 		);
@@ -132,7 +132,7 @@ class LianaAutomation_SiteTracking {
 		add_settings_field(
 			'lianaautomation_sitetracking_key',
 			'Automation Secret Key',
-			array( $this, 'liana_automation_sitetracking_key_callback' ),
+			array( $this, 'lianaautomation_sitetracking_key_callback' ),
 			'lianaautomation_sitetracking_admin',
 			'lianaautomation_sitetracking_section'
 		);
@@ -140,7 +140,7 @@ class LianaAutomation_SiteTracking {
 		add_settings_field(
 			'lianaautomation_sitetracking_channel',
 			'Automation Channel ID',
-			array( $this, 'liana_automation_channel_callback' ),
+			array( $this, 'lianaautomation_channel_callback' ),
 			'lianaautomation_sitetracking_admin',
 			'lianaautomation_sitetracking_section'
 		);
@@ -149,7 +149,7 @@ class LianaAutomation_SiteTracking {
 		add_settings_field(
 			'lianaautomation_sitetracking_status_check',
 			'LianaAutomation Connection Check',
-			array( $this, 'liana_automation_sitetracking_connection_check_callback' ),
+			array( $this, 'lianaautomation_sitetracking_connection_check_callback' ),
 			'lianaautomation_sitetracking_admin',
 			'lianaautomation_sitetracking_section'
 		);
@@ -193,7 +193,7 @@ class LianaAutomation_SiteTracking {
 	 *
 	 * @return void
 	 */
-	public function liana_automation_section_info():void {
+	public function lianaautomation_sitetracking_section_info():void {
 		// Generate info text section.
 		printf( '<h2>Important CCPA/GDPR privacy information</h2>' );
 		printf( '<p>By entering valid API credentials below, you enable this plugin to send personal information of your site visitors to Liana Technologies Oy.</p>' );
@@ -206,7 +206,7 @@ class LianaAutomation_SiteTracking {
 	 *
 	 * @return void
 	 */
-	public function liana_automation_sitetracking_url_callback():void {
+	public function lianaautomation_sitetracking_url_callback():void {
 		printf(
 			'<input class="regular-text" type="text" '
 			. 'name="lianaautomation_sitetracking_options[lianaautomation_url]" '
@@ -222,7 +222,7 @@ class LianaAutomation_SiteTracking {
 	 *
 	 * @return void
 	 */
-	public function liana_automation_sitetracking_realm_callback():void {
+	public function lianaautomation_sitetracking_realm_callback():void {
 		printf(
 			'<input class="regular-text" type="text" '
 			. 'name="lianaautomation_sitetracking_options[lianaautomation_realm]" '
@@ -237,7 +237,7 @@ class LianaAutomation_SiteTracking {
 	 *
 	 * @return void
 	 */
-	public function liana_automation_sitetracking_user_callback():void {
+	public function lianaautomation_sitetracking_user_callback():void {
 		printf(
 			'<input class="regular-text" type="text" '
 			. 'name="lianaautomation_sitetracking_options[lianaautomation_user]" '
@@ -253,7 +253,7 @@ class LianaAutomation_SiteTracking {
 	 *
 	 * @return void
 	 */
-	public function liana_automation_sitetracking_key_callback():void {
+	public function lianaautomation_sitetracking_key_callback():void {
 		printf(
 			'<input class="regular-text" type="text" '
 			. 'name="lianaautomation_sitetracking_options[lianaautomation_key]" '
@@ -269,7 +269,7 @@ class LianaAutomation_SiteTracking {
 	 *
 	 * @return void
 	 */
-	public function liana_automation_sitetracking_channel_callback():void {
+	public function lianaautomation_sitetracking_channel_callback():void {
 		printf(
 			'<input class="regular-text" type="text" '
 			. 'name="lianaautomation_sitetracking_options[lianaautomation_channel]" '
@@ -285,7 +285,7 @@ class LianaAutomation_SiteTracking {
 	 *
 	 * @return string
 	 */
-	public function liana_automation_sitetracking_connection_check_callback() {
+	public function lianaautomation_sitetracking_connection_check_callback() {
 
 		$return = '💥Fail';
 		if ( empty( $this->lianaautomation_sitetracking_options['lianaautomation_user'] ) ) {
