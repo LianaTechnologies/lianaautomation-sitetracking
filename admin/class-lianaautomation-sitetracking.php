@@ -195,7 +195,7 @@ class LianaAutomation_SiteTracking {
 	 */
 	public function lianaautomation_sitetracking_section_info():void {
 		// Generate info text section.
-		printf( '<h2>Important CCPA/GDPR privacy information</h2>' );
+		printf( '<h2>Important CCPA/GDPR privacy compliancy information</h2>' );
 		printf( '<p>By entering valid API credentials below, you enable this plugin to send personal information of your site visitors to Liana Technologies Oy.</p>' );
 		printf( '<p>In most cases, this plugin <b>must</b> be accompanied by a <i>consent management solution</i>.</p>' );
 		printf( '<p>If unsure, do not use this plugin.</p>' );
