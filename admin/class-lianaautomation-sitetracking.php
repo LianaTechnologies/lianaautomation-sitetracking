@@ -140,7 +140,7 @@ class LianaAutomation_SiteTracking {
 		add_settings_field(
 			'lianaautomation_sitetracking_channel',
 			'Automation Channel ID',
-			array( $this, 'lianaautomation_channel_callback' ),
+			array( $this, 'lianaautomation_sitetracking_channel_callback' ),
 			'lianaautomation_sitetracking_admin',
 			'lianaautomation_sitetracking_section'
 		);
