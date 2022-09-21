@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name:       LianaAutomation Site Tracking
- * Description:       LianaAutomation for WordPress (page browse tracking)
+ * Description:       LianaAutomation Site Tracking for WordPress (page browse event tracking)
  * Version:           1.0.32
  * Requires at least: 5.2
  * Requires PHP:      7.4
