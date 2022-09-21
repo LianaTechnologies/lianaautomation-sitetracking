@@ -22,8 +22,8 @@ class LianaAutomation_SiteTracking {
 	 * Constructor
 	 */
 	public function __construct() {
-		add_action( 'admin_menu', array( $this, 'liana_automation_add_plugin_page' ) );
-		add_action( 'admin_init', array( $this, 'liana_automation_page_init' ) );
+		add_action( 'admin_menu', array( $this, 'lianaautomation_sitetracking_add_plugin_page' ) );
+		add_action( 'admin_init', array( $this, 'lianaautomation_sitetracking_page_init' ) );
 	}
 
 	/**
@@ -31,7 +31,7 @@ class LianaAutomation_SiteTracking {
 	 *
 	 * @return void
 	 */
-	public function liana_automation_add_plugin_page():void {
+	public function lianaautomation_sitetracking_add_plugin_page():void {
 		global $admin_page_hooks;
 		if ( defined( 'WP_DEBUG' ) && WP_DEBUG === true ) {
 			// phpcs:disable WordPress.PHP.DevelopmentFunctions
@@ -45,7 +45,7 @@ class LianaAutomation_SiteTracking {
 				'LianaAutomation',
 				'manage_options',
 				'lianaautomation',
-				array( $this, 'lianaAutomation_create_admin_page' ),
+				array( $this, 'lianaautomation_sitetracking_create_admin_page' ),
 				'dashicons-admin-settings',
 				65
 			);
@@ -56,7 +56,7 @@ class LianaAutomation_SiteTracking {
 			'Site Tracking',
 			'manage_options',
 			'lianaautomation-sitetracking',
-			array( $this, 'liana_automation_create_admin_page' ),
+			array( $this, 'lianaautomation_sitetracking_create_admin_page' ),
 		);
 
 		/*
@@ -70,8 +70,8 @@ class LianaAutomation_SiteTracking {
 	 *
 	 * @return void
 	 */
-	public function liana_automation_create_admin_page():void {
-		$this->lianaautomation_options = get_option( 'lianaautomation_sitetracking_options' ); ?>
+	public function lianaautomation_sitetracking_create_admin_page():void {
+		$this->lianaautomation_sitetracking_options = get_option( 'lianaautomation_sitetracking_options' ); ?>
 		<div class="wrap">
 			<h2>LianaAutomation API Options for Site Tracking</h2>
 			<?php settings_errors(); ?>
@@ -91,11 +91,11 @@ class LianaAutomation_SiteTracking {
 	 *
 	 * @return void
 	 */
-	public function liana_automation_page_init():void {
+	public function lianaautomation_sitetracking_page_init():void {
 		register_setting(
 			'lianaautomation_sitetracking_option_group',
 			'lianaautomation_sitetracking_options',
-			array( $this, 'liana_automation_sitetracking_sanitize' )
+			array( $this, 'lianaautomation_sitetracking_sanitize' )
 		);
 
 		add_settings_section(
@@ -162,7 +162,7 @@ class LianaAutomation_SiteTracking {
 	 *
 	 * @return null
 	 */
-	public function liana_automation_sanitize( $input ) {
+	public function lianaautomation_sitetracking_sanitize( $input ) {
 		$sanitary_values = array();
 
 		if ( isset( $input['lianaautomation_url'] ) ) {

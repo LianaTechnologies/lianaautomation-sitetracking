@@ -16,7 +16,7 @@
  *
  * @return bool
  */
-function liana_automation_send() {
+function lianaautomation_sitetracking_send() {
 	// liana_t tracking cookie handling.
 	if ( ! isset( $_COOKIE['liana_t'] ) ) {
 		// liana_t cookie not found, unable to track. Bailing out.
@@ -30,71 +30,71 @@ function liana_automation_send() {
 	/**
 	* Retrieve Liana Options values (Array of All Options)
 	*/
-	$lianaautomation_options = get_option( 'lianaautomation_options' );
+	$lianaautomation_sitetracking_options = get_option( 'lianaautomation_sitetracking_options' );
 
-	if ( empty( $lianaautomation_options ) ) {
+	if ( empty( $lianaautomation_sitetracking_options ) ) {
 		if ( defined( 'WP_DEBUG' ) && WP_DEBUG === true ) {
 			// phpcs:disable WordPress.PHP.DevelopmentFunctions
-			error_log( 'lianaautomation_options was empty' );
+			error_log( 'lianaautomation_sitetracking_options was empty' );
 			// phpcs:enable
 		}
 		return false;
 	}
 
 	// The user id, integer.
-	if ( empty( $lianaautomation_options['lianaautomation_user'] ) ) {
+	if ( empty( $lianaautomation_sitetracking_options['lianaautomation_user'] ) ) {
 		if ( defined( 'WP_DEBUG' ) && WP_DEBUG === true ) {
 			// phpcs:disable WordPress.PHP.DevelopmentFunctions
-			error_log( 'lianaautomation_options lianaautomation_user was empty' );
+			error_log( 'lianaautomation_sitetracking_options lianaautomation_user was empty' );
 			// phpcs:enable
 		}
 		return false;
 	}
-	$user = $lianaautomation_options['lianaautomation_user'];
+	$user = $lianaautomation_sitetracking_options['lianaautomation_user'];
 
 	// Hexadecimal secret string.
-	if ( empty( $lianaautomation_options['lianaautomation_key'] ) ) {
+	if ( empty( $lianaautomation_sitetracking_options['lianaautomation_key'] ) ) {
 		if ( defined( 'WP_DEBUG' ) && WP_DEBUG === true ) {
 			// phpcs:disable WordPress.PHP.DevelopmentFunctions
-			error_log( 'lianaautomation_options lianaautomation_key was empty' );
+			error_log( 'lianaautomation_sitetracking_options lianaautomation_key was empty' );
 			// phpcs:enable
 		}
 		return false;
 	}
-	$secret = $lianaautomation_options['lianaautomation_key'];
+	$secret = $lianaautomation_sitetracking_options['lianaautomation_key'];
 
 	// The base url for our API installation.
-	if ( empty( $lianaautomation_options['lianaautomation_url'] ) ) {
+	if ( empty( $lianaautomation_sitetracking_options['lianaautomation_url'] ) ) {
 		if ( defined( 'WP_DEBUG' ) && WP_DEBUG === true ) {
 			// phpcs:disable WordPress.PHP.DevelopmentFunctions
-			error_log( 'lianaautomation_options lianaautomation_url was empty' );
+			error_log( 'lianaautomation_sitetracking_options lianaautomation_url was empty' );
 			// phpcs:enable
 		}
 		return false;
 	}
-	$url = $lianaautomation_options['lianaautomation_url'];
+	$url = $lianaautomation_sitetracking_options['lianaautomation_url'];
 
 	// The realm of our API installation, all caps alphanumeric string.
-	if ( empty( $lianaautomation_options['lianaautomation_realm'] ) ) {
+	if ( empty( $lianaautomation_sitetracking_options['lianaautomation_realm'] ) ) {
 		if ( defined( 'WP_DEBUG' ) && WP_DEBUG === true ) {
 			// phpcs:disable WordPress.PHP.DevelopmentFunctions
-			error_log( 'lianaautomation_options lianaautomation_realm was empty' );
+			error_log( 'lianaautomation_sitetracking_options lianaautomation_realm was empty' );
 			// phpcs:enable
 		}
 		return false;
 	}
-	$realm = $lianaautomation_options['lianaautomation_realm'];
+	$realm = $lianaautomation_sitetracking_options['lianaautomation_realm'];
 
 	// The channel ID of our automation.
-	if ( empty( $lianaautomation_options['lianaautomation_channel'] ) ) {
+	if ( empty( $lianaautomation_sitetracking_options['lianaautomation_channel'] ) ) {
 		if ( defined( 'WP_DEBUG' ) && WP_DEBUG === true ) {
 			// phpcs:disable WordPress.PHP.DevelopmentFunctions
-			error_log( 'lianaautomation_options lianaautomation_channel was empty' );
+			error_log( 'lianaautomation_sitetracking_options lianaautomation_channel was empty' );
 			// phpcs:enable
 		}
 		return false;
 	}
-	$channel = $lianaautomation_options['lianaautomation_channel'];
+	$channel = $lianaautomation_sitetracking_options['lianaautomation_channel'];
 
 	/**
 	* General variables
@@ -190,4 +190,4 @@ function liana_automation_send() {
 	$response = json_decode( $response, true );
 }
 
-add_action( 'wp_head', 'liana_automation_send', 10, 2 );
+add_action( 'wp_head', 'lianaautomation_sitetracking_send', 10, 2 );
