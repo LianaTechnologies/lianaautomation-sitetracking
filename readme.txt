@@ -9,7 +9,7 @@ License URI: https://www.gnu.org/licenses/gpl-3.0-standalone.html
 
 == Description ==
 
-LianaAutomation Site Tracking is an integration plugin for a LianaAutmation marketing automation platform.
+LianaAutomation Site Tracking is an integration plugin for a LianaAutomation marketing automation platform.
 
 = Grow your business =
 
