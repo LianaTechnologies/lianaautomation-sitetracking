@@ -69,7 +69,7 @@ REST API documentation of Automation product is available at [our support site](
 Automatic installation is the easiest option -- WordPress will handle the file transfer, and you won’t need to leave your web browser. To do an automatic install of 
 LianaAutomation plugin, log in to your WordPress dashboard, navigate to the Plugins menu, and click “Add New.”
  
-In the search field type “LianaAutomation” then click “Search Plugins.” Once you’ve found us, you can install it by clicking “Install Now,” and WordPress will take it from there.
+In the search field type “LianaAutomation” then click “Search Plugins”. Once you’ve found us, you can install it by clicking “Install Now” and WordPress will take it from there.
 
 = Manual installation =
 
