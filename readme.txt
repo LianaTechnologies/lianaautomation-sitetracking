@@ -41,7 +41,7 @@ LianaAutomation, there could be a conflict between LianaAutomation and an outdat
 
 = Where can I report bugs? =
 
-Report bugs on our [GitHub repository](https://github.com/LianaTech/lianaautomation-sitetracking/issues). 
+Report bugs on our [GitHub repository](https://github.com/LianaTechnologies/lianaautomation-sitetracking/issues).
 
 You can also notify us via our support channels.
 
