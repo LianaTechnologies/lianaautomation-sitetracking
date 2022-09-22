@@ -17,7 +17,7 @@ LianaAutomation means business.
 
 = Contribute and translate =
 
-LianaAutomation is developed and supported by Liana Automation Oy, part of Ilkka. Join our crew at Github or contact using other means.
+LianaAutomation is developed and supported by Liana Technologies Oy, part of Ilkka. Join our crew at Github or contact using other means.
 
 == Frequently Asked Questions ==
 
