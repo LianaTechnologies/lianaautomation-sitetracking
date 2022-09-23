@@ -11,13 +11,13 @@ License URI: https://www.gnu.org/licenses/gpl-3.0-standalone.html
 
 LianaAutomation Site Tracking is an integration plugin for a LianaAutomation marketing automation platform.
 
-= Grow your business =
+= Create Automations for your WordPress site visitors =
 
-LianaAutomation means business. 
+LianaAutomation Site Tracking is a free plugin that allows you to segment your WordPress site visitors and create marketing automations based on those segments. Grow you business and create effective automations for retargeting, additional sales or brand awareness. Implement rightly timed marketing actions based on the customer data you possess by using the marketing automation platform LianaAutomation.
 
 = Contribute and translate =
 
-LianaAutomation is developed and supported by Liana Technologies Oy, part of Ilkka. Join our crew at Github or contact using other means.
+LianaAutomation is developed and supported by Liana Technologies Oy. Join our crew at GitHub or contact using other means.
 
 == Frequently Asked Questions ==
 
