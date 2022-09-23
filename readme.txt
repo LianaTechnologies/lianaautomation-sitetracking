@@ -1,4 +1,5 @@
 === LianaAutomation Site Tracking ===
+Contributors: jaakkoperoliana, timopohjanvirtaliana
 Tags: automation, online store, ecommerce, e-commerce
 Requires at least: 5.8
 Tested up to: 6.0
