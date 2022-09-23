@@ -15,7 +15,7 @@ LianaAutomation Site Tracking is an integration plugin for a LianaAutomation mar
 = Create Automations for your WordPress site visitors =
 
 Liana Automation allows you to segment your WordPress site visitors and create marketing automations based on those segments.
-Grow you business and create effective automations for retargeting, additional sales or brand awareness.
+With this tool, you can grow your business and create effective automations for many purposes, like retargeting, additional sales, or brand awareness.
 Implement rightly timed marketing actions based on the customer data you possess.
 
 = Contribute and translate =
