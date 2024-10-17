@@ -2,7 +2,7 @@
 Contributors: lianatechnologies, jaakkoperoliana, timopohjanvirtaliana
 Tags: automation, online store, ecommerce, e-commerce
 Requires at least: 5.8
-Tested up to: 6.3
+Tested up to: 6.6.2
 Requires PHP: 7.4
 Stable tag: 1.0.33
 License: GPL-3.0-or-later
