@@ -27,9 +27,10 @@ function lianaautomation_sitetracking_send() {
 	global $wp;
 	$current_url = home_url( add_query_arg( array(), $wp->request ) );
 
-	/**
-	* Retrieve Liana Options values (Array of All Options)
-	*/
+	// Get the liana_pv queryparameter value.
+	$liana_pv = isset( $_GET['liana_pv'] ) ? sanitize_text_field( $_GET['liana_pv'] ) : null;
+
+	// Retrieve Liana Options values (Array of All Options).
 	$lianaautomation_sitetracking_options = get_option( 'lianaautomation_sitetracking_options' );
 
 	if ( empty( $lianaautomation_sitetracking_options ) ) {
@@ -115,14 +116,21 @@ function lianaautomation_sitetracking_send() {
 	 * @return mixed
 	 */
 	$path = 'v1/import';
+
+	// Create the data array.
+	$identity = array(
+		'token' => $liana_t,
+	);
+	if ( ! empty( $liana_pv ) ) {
+		$identity['pv_uid'] = $liana_pv;
+	}
+
 	$data = array(
 		'channel'       => $channel,
 		'no_duplicates' => false,
 		'data'          => array(
 			array(
-				'identity' => array(
-					'token' => $liana_t,
-				),
+				'identity' => $identity,
 				'events'   => array(
 					array(
 						'verb'  => 'pbr',

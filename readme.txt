@@ -4,7 +4,7 @@ Tags: automation, online store, ecommerce, e-commerce
 Requires at least: 5.8
 Tested up to: 6.3
 Requires PHP: 7.4
-Stable tag: 1.0.32
+Stable tag: 1.0.33
 License: GPL-3.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-3.0-standalone.html
 
@@ -84,5 +84,8 @@ Manual installation method requires downloading the LianaAutomation plugin and u
 Automatic updates should work smoothly, but we still recommend you back up your site.
 
 == Changelog ==
+
+= 1.0.33 2024-10-17 =
+* **Fix:** Users coming from LianaMailer are recognized
 
 = 1.0.32 2022-09-22 = Initial public release
